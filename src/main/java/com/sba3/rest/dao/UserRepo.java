@@ -7,6 +7,17 @@ import com.sba3.rest.entity.User;
 
 public interface UserRepo extends JpaRepository<User, Integer> {
 	
+	User findByEmail(String email);
+	
+	
+	
+	User findByMobile(String mobile);
+	
+	User findByUserId(Integer userId);
+	
+	boolean  existsByMobile(String Mobile);
+	
+	
 	
 
 }
