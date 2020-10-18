@@ -9,11 +9,11 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	
 	User findByEmail(String email);
 	
-	
-	
 	User findByMobile(String mobile);
 	
 	User findByUserId(Integer userId);
+	
+	boolean deleteByMobile(String Mobile);
 	
 	boolean  existsByMobile(String Mobile);
 	

@@ -33,9 +33,13 @@ public class UserserviceImpl implements Userservice{
 	}
 
 	@Override
-	public User save(User contact) throws Exeption {
-		// TODO Auto-generated method stub
-		return null;
+	public User save(User user) throws Exeption {
+	if(ur.existsById(user.getUserId()))	{
+	ur.save(user);		
+	}else {
+	throw new Exeption("User doesn't exists");		
+	}
+	return user;
 	}
 
 	@Override
@@ -49,22 +53,38 @@ public class UserserviceImpl implements Userservice{
 	@Override
 	public List<User> getAllUsers() throws Exeption {
 	
-		
-	System.out.println(ur.findAll()); 
-		
+	
 	return ur.findAll();
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteUser(int userId) throws Exeption {
 		// TODO Auto-generated method stub
-		return false;
+		ur.deleteById(userId);		
+		return true;
 	}
+	
+	
+	@Transactional
+	public boolean deleteUserbyMobile(String mobile) throws Exeption {
+		// TODO Auto-generated method stub
+		ur.deleteByMobile(mobile);	
+		return true;
+	}
+	
+	
 
 	@Override
 	public User getUser(int userId) throws Exeption {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean deleteByMobile(String Mobile) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

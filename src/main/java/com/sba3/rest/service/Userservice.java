@@ -14,6 +14,8 @@ public interface Userservice {
 	
 	boolean deleteUser(int userId) throws Exeption;
 	
+	boolean deleteByMobile(String Mobile);
+	
 	User getUser(int userId) throws Exeption;
 	List<User> getAllUsers() throws Exeption;
 
