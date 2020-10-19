@@ -39,10 +39,26 @@ public class InterviewController {
 	  }
 	 
 	
-	/*
-	 * @PostMapping("/update") public User updateUser(@RequestBody User user) throws
-	 * Exeption { return interviewservice.save(user); }
-	 */
+	
+	  @PostMapping("/update") 
+	  public Interview updateUser(@RequestBody Interview interview) throws Exeption { 
+	  return interviewservice.save(interview); 
+	  }
+	  
+	  @DeleteMapping("/delete/{id}") 
+	  public Interview deleteuser(@PathVariable int id) throws Exeption { 
+	Interview deletedInterview = null; 
+	  List<Interview> allinterviews =interviewservice.getAllInterviews(); 
+	  for (Interview interview : allinterviews) { 
+	  if(interview.getInId().equals(id)) { 
+	  interviewservice.deleteInterview(id);
+	  deletedInterview = interview;
+	  break; 
+	  } 
+	  } 
+	  return deletedInterview; 
+	  }
+	 
 	
 	
 	/*

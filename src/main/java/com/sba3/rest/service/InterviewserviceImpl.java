@@ -34,8 +34,12 @@ public class InterviewserviceImpl implements Interviewservice{
 
 	@Override
 	public Interview save(Interview interview) throws Exeption {
-		// TODO Auto-generated method stub
-		return null;
+		if(ir.existsById(interview.getInId()))	{
+			ir.save(interview);		
+			}else {
+			throw new Exeption("Interview doesn't exists");		
+			}
+			return interview;
 	}
 
 	@Override
@@ -46,8 +50,8 @@ public class InterviewserviceImpl implements Interviewservice{
 
 	@Override
 	public boolean deleteInterview(int inid) throws Exeption {
-		// TODO Auto-generated method stub
-		return false;
+	ir.deleteById(inid);
+	return true;
 	}
 
 	@Override
