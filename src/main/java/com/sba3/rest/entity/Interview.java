@@ -23,12 +23,10 @@ import org.springframework.lang.NonNull;
 @Table(name="interview")
 public class Interview {
 	
-	@Id
-	@NotNull(message="Interview Id is Required")
-	@Min(value=1, message="Interview Id cannot be zero or negative")
+	@Id	
 	private Integer inId;
 	
-	@Column(name="interviewerName")
+	@Column(name="interviewerName")	
 	@NotNull(message="Interviewer Name is required")
 	@NotBlank(message = "Interviewer name is required")
 	@Size(min=5,max=25,message="Interviewer Name required to be 5 to 25 chars in length")
@@ -40,31 +38,95 @@ public class Interview {
 	@Size(min=5,max=25,message="interviewName required to be 5 to 25 chars in length")
 	private String interviewName;
 	
-	@Column(name="userskills")
+	@Column(name="userSkills")	
 	@NotNull(message=" userskills is required")
 	@NotBlank(message = " userskills is required")
 	@Size(min=5,max=25,message=" userskills required to be 5 to 25 chars in length")
-	private String  userskills;
+	private String  userSkills;
 	
 	@Column(name="time")
-	@NotNull(message="time is required")
-	@NotBlank(message = "time is required")
 	private int  time;
 	
-	@Column(name="interviewdate")
+	@Column(name="interviewdate")	
 	@NotNull(message="interviewdate is required")
 	@NotBlank(message = "interviewdate is required")
-	private Date interviewdate;
+	private String interviewdate;
 	
-	@Column(name="interviewStatus")
+	@Column(name="interviewStatus")	
 	@NotNull(message="interviewStatus is required")
 	@NotBlank(message = "interviewStatus is required")
 	private String interviewStatus;
 	
-	@Column(name="remarks")
+	@Column(name="remarks")	
 	@NotNull(message="remarks is required")
 	@NotBlank(message = "remarks is required")
 	private String remarks;
+	
+	public Integer getInId() {
+		return inId;
+	}
+
+	public void setInId(Integer inId) {
+		this.inId = inId;
+	}
+
+	public String getInterviewerName() {
+		return interviewerName;
+	}
+
+	public void setInterviewerName(String interviewerName) {
+		this.interviewerName = interviewerName;
+	}
+
+	public String getInterviewName() {
+		return interviewName;
+	}
+
+	public void setInterviewName(String interviewName) {
+		this.interviewName = interviewName;
+	}
+
+	public String getUserSkills() {
+		return userSkills;
+	}
+
+	public void setUserSkills(String userSkills) {
+		this.userSkills = userSkills;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public String getInterviewdate() {
+		return interviewdate;
+	}
+
+	public void setInterviewdate(String interviewdate) {
+		this.interviewdate = interviewdate;
+	}
+
+	public String getInterviewStatus() {
+		return interviewStatus;
+	}
+
+	public void setInterviewStatus(String interviewStatus) {
+		this.interviewStatus = interviewStatus;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	
 	
 
 	
